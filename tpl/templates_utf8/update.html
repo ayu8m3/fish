@@ -1,0 +1,23 @@
+<form id="form1" name="form1" method="post">
+    <p>修改會員資料</p>
+    <p>姓名:
+      <input name="name" type="text" size="15" value="{$rs.name}"/>
+    </p>
+    <p>性別:
+      <input name="gender" type="text"  size="1" value="{$rs.gender}"/>
+    </p>
+    <p>電話:
+      <input name="phone" type="text"  size="15" value="{$rs.phone}"/>
+    </p>
+    <p>手機:
+      <input name="mobile" type="text" size="15" value="{$rs.mobile}"/>
+    </p>
+    <p>地址:
+      <input name="address" type="text" size="30" value="{$rs.address}"/>
+    </p>
+    <p>
+      <a href="index.php"><input type="submit" name="submit" value="送出"/></a>
+      <input name="check" type="hidden" id="check" value="yes"/>
+    </p>
+    <a href="index.PHP"><input type="button" name="button" value="回上一頁"/></a>
+  </form>

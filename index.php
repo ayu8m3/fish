@@ -1,8 +1,21 @@
-<HTML>
-<TITLE>功能列表</TITLE>
-<body>
-	<head>會員管理</head><br>
-	<a href="wwww.PHP">會員列表</a><br>
-	<a href="insert.PHP">新增會員</a><br>
-</body>
-</HTML>
+<?php
+require_once 'main.php';
+$name1='';
+if($_POST){
+	if($_POST['name1']!='' or $_POST['sex']!=''){
+		$name1=$_POST['name1'];
+		$sex=$_POST['sex'];
+		$result=mysqli_query($link,"select*from contact where name like'%$name1%' and gender='$sex'");
+	}
+}else{
+	$result=mysqli_query($link,"select*from contact");
+}
+$aAllData = array();
+while($rs=mysqli_fetch_assoc($result)){
+	$aAllData[] = $rs;
+}
+$smarty->assign("name1",$name1);
+$smarty->assign("alldata", $aAllData);
+// echo "<pre>";print_r($aAllData);echo "</pre>";
+$smarty->display('index.html');
+?>
